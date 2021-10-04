@@ -27,13 +27,13 @@
 
 
                     <li class="nav-item dropdown text-black">
-                        <a class="nav-link dropdown text-black" href=""  id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link dropdown text-black" href="<%=new_post_path(current_user)%>"  id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Create
                         </a>
                     </li>
 
                     <li class="nav-item dropdown text-black">
-                        <a class="nav-link dropdown text-black" href="<%= user_path(current_user.id) %>" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link dropdown text-black" href="<%= user_path(current_user.id)%>" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <%= current_user.username %> 😎
                         </a>
                     </li>

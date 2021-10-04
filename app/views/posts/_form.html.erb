@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row justify-content-center">
+
+    <div class="col-10 pt-4 bg-brand-facebook rounded">
+      <%= form_for(@post) do |f| %>
+        <div class="form-group row medium">
+          <%= f.label :title, class: "col-sm col-form-label text-black fw-bold" %>
+          <div class="col-10">
+            <%= f.text_field :title, class: "form-control rounded", placeholder: "Title of Post" %>
+          </div>
+        </div><br>
+
+        <div class="form-group row medium">
+          <%= f.label :content, class: "col-sm col-form-label text-black fw-bold" %>
+          <div class="col-10"> 
+            <%= f.text_area :content, rows: 8, class: "form-control", placeholder: "Tell us more" %>
+          </div>
+        </div><br>
+
+        <div class="form-group row medium">
+          <%= f.label :service, class: "col-sm col-form-label text-black fw-bold" %>
+          <div class="col-10"> 
+            <%= f.collection_select(:service_id, Service.all, :id, :name,
+            { prompt: "select one of the following for the service category"}, { size: 10, class: "custom-select" }) %>
+          </div>
+        </div><br>
+
+        <div class="col-12 justify-content-center text-center">
+          <%= f.submit class: "btn btn-block btn-primary" %>
+        </div>
+
+      <% end %>
+    </div>
+
+    <div class="col-12 justify-content-center">
+    <div class="mb-3 text-center ">
+        <br>
+      <%= link_to '[ Cancel and return to Homepage ]', "", class: "text-info text-center text-black" %>
+    </div>
+    </div>
+  </div>
+</div>
