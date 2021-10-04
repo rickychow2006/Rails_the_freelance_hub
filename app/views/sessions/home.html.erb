@@ -1,0 +1,51 @@
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" integrity="sha384-3AB7yXWz4OeoZcPbieVW64vVXEwADiYyAEhwilzWsLw+9FgqpyjjStpPnpBO8o8S" crossorigin="anonymous">
+
+ <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+        <div class="card bg-white text-black" style="border-radius: 1rem;">
+          <div class="card-body p-5 ">
+            <div class="mb-md-3 mt-md-3 pb-4">
+              <h2>Welcome to The Freelance Hub!</h2>
+              <br>
+
+
+              <h5 class ="text-left">Log in</h5>
+
+              <%= form_for :user do |f| %>   
+                <div class="form-outline form-white mb-4">
+                  <%= f.label :username , class: "form-control-label" %><br />
+                  <%= f.text_field :username , autofocus: true, autocomplete: "username", class: "form-control form-control-prepend" %>
+                </div>
+
+                <div class="form-outline form-white mb-4">
+                  <%= f.label :password, class: "form-control-label"%><br />
+                  <%= f.password_field :password, autocomplete: "current-password", class: "form-control form-control-prepend" %>
+                </div><br>
+              
+                <div class="actions">
+                  <%= f.submit "Login", class: "btn btn-block btn-primary form-control "%>
+                </div><br>
+
+                <p class="text-black-50 mb-2 text-center">Or Sign Up Using</p>
+
+                <div class="d-flex justify-content-center text-center mt-1 pt-1">
+                  <a href="#!" class="text-#3b5998"><i class="fab fa-facebook-f fa-lg"></i></a>
+                  <a href="#!" class="text-#1da1f2"><i class="fab fa-twitter fa-lg mx-4 px-2"></i></a>
+                  <a href="#!" class="text-#ea4335"><i class="fab fa-google fa-lg"></i></a>
+                </div><br>
+              
+              <% end %>
+
+                <div class="actions">
+
+                <p class="text-black-50 mb-2 text-center">Or Sign Up Using Email</p>
+
+                <%=link_to "create an account", '/signup', class: "btn btn-block btn-primary form-control"%>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

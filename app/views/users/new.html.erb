@@ -1,0 +1,47 @@
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" integrity="sha384-3AB7yXWz4OeoZcPbieVW64vVXEwADiYyAEhwilzWsLw+9FgqpyjjStpPnpBO8o8S" crossorigin="anonymous">
+
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+        <div class="card bg-white text-black" style="border-radius: 1rem;">
+          <div class="card-body p-5 ">
+            <div class="mb-md-3 mt-md-3 pb-4">
+              <h5 class ="text-left">Sign up</h5>
+
+              <%= form_for(@user) do |f| %>   
+                <div class="form-outline form-white mb-4">
+                  <%= f.label :username , class: "form-control-label" %><br />
+                  <%= f.text_field :username , autofocus: true, autocomplete: "username", class: "form-control form-control-prepend" %>
+                </div>
+
+                <div class="form-outline form-white mb-4">
+                  <%= f.label :email , class: "form-control-label" %><br />
+                  <%= f.text_field :email , autofocus: true, autocomplete: "email", class: "form-control form-control-prepend" %>
+                </div>
+
+                <div class="form-outline form-white mb-4">
+                  <%= f.label "Password (6 characters minimum)" , class: "form-control-label" %><br />
+                  <%= f.password_field :password, autocomplete: "new-password", placeholder: "6+ characters", class: "form-control form-control-prepend" %>
+                </div>
+
+                <div class="form-outline form-white mb-4">
+                  <%= f.label "Password confirmation", class: "form-control-label"%><br />
+                  <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control form-control-prepend" %>
+                </div><br>
+              
+                <div class="actions">
+                  <%= f.submit "Sign up", class: "btn btn-block btn-primary form-control "%>
+                </div><br>
+
+              <% end %>
+
+                <div class="actions">
+                  <%=link_to "back to home page", '/', class: "btn btn-block btn-primary form-control"%>
+                </div><br>         
+
+            </div>
+          </div>
+        </div>
+       </div>
+     </div>
+  </div>

@@ -11,6 +11,12 @@
   </head>
 
   <body>
-    <%= yield %>
+        <%= render 'layouts/navbar' if current_user %>
+
+        <section class="vh-100 gradient-custom">
+
+        <%= yield %>
+        </section>
+
   </body>
 </html>
