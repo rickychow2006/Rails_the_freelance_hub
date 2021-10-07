@@ -1,4 +1,16 @@
 <h1>Welcome <%= @user.username%> </h1>
 
-<% display_posts %>
+<h1> Service: </h1>
+<% Service.all.each do |service|%>
+<h1> <a href = "/services/<%=service.id%>"> <%=service.name%> </h1>
+<%end %>
+
+
+<%= display_posts %>
 <%= render partial: "posts/posts", locals: {posts: @user.posts} %>
+
+<h1>Your Favorite Post: </h1>
+
+<% @user.userfavorites.all.each do |fav|%>
+<h1> <a href = "/posts/<%=fav.post_id%>"> <%=Post.find_by_id(fav.post_id).title%> </h1>
+<%end%>

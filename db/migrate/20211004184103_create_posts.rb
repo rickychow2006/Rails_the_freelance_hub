@@ -4,9 +4,7 @@ class CreatePosts < ActiveRecord::Migration[6.1]
       t.string :title
       t.text :content
       t.integer :user_id
-      
-      t.belongs_to :user, foreign_key: true
-      t.belongs_to :service, foreign_key: true
+      t.integer :service_id
 
       t.timestamps
     end

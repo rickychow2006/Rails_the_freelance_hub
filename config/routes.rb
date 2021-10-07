@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :services
   resources :users
   resources :posts 
+  resources :userfavorites, only: [:create, :destroy]
   resources :users do 
     resources :posts
     end 

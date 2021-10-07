@@ -1,0 +1,28 @@
+ <div class="container">
+    <div class="row">
+      </div>
+      <div class="col text-center">
+        <br>
+
+        <table class="table col-5">
+          <thead>
+            <tr>
+              <th class="text-dark fw-bold" scope="col"><h2><%=@service.name + " Service"%></h2></th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @service.posts.each do |i| %>
+              <tr>
+                <td scope="row" class="bg-white"><a href= "/posts/<%=i.id%>" class="text-dark"><%= i.title %></a></td>
+              </tr>
+            <% end %>
+
+          </tbody>
+        </table>
+
+        <br><br>
+
+      </div>
+    </div>
+  </div>

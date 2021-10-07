@@ -1,0 +1,13 @@
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" integrity="sha384-3AB7yXWz4OeoZcPbieVW64vVXEwADiYyAEhwilzWsLw+9FgqpyjjStpPnpBO8o8S" crossorigin="anonymous">
+
+<%if current_user.favorite? (@post)%>
+    <%= form_tag userfavorite_path, method: 'delete' do%>
+        <%= hidden_field_tag :post_id, @post.id %>
+        <%= submit_tag "Remove from my favorites.", class: "btn-sm"%>
+    <%end%>
+<%else%>
+    <%= form_tag userfavorites_path do %>
+        <%= hidden_field_tag :post_id, @post.id %>
+        <%= submit_tag "Add to my favorites.", class: "btn-sm"%>
+    <%end%>
+<%end%>
