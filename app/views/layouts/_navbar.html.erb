@@ -1,24 +1,27 @@
-    <nav class="navbar navbar-expand-lg">
-        <a class="navbar-brand text-black fw-bold " href=""> The Freelance Hub </a>
-        <div class=" navbar rounded pl-4 ml-auto">
-            <div class="form-inline my-2 my-lg-0 ml-auto" >
-                <ul class="navbar-nav ml-auto">
-                    <ul class="nav-item text-black">
-                        <a class="nav-link text-black fw-bold" href="#" >
-                        View All Post
-                        </a>
-                    </ul>
-                    <ul class="nav-item text-black">
-                        <a class="nav-link  text-black fw-bold" href="<%=new_post_path(current_user)%>">
-                        Create
-                        </a>
-                    </ul>
-                    <ul class="nav-item text-black">
-                        <a class="nav-link text-black fw-bold" href="<%= user_path(current_user.id)%>">
-                        <%= current_user.username %>
-                        </a>
-                    </ul>
-                </ul>
-            </div>
-        </div>
-    </nav>
+<nav class="navbar navbar-expand-lg navbar-light bg-primary fw-bold">
+  <div class="container-fluid">
+    <a class="navbar-brand text-white fs-3" href="#">The Freelance Hub</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active text-white" aria-current="page" href= "/users/<%=current_user.id%>" >Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active text-white" href="#">Your Posts</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active text-white" href="#">Favorites</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active text-white" href="/users/<%=current_user.id%>/posts/new">Create New Posts</a>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Logout", session_path(current_user),method: :delete, class: "nav-link active text-white" %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

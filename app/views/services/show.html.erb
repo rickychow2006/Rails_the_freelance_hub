@@ -1,28 +1,22 @@
- <div class="container">
-    <div class="row">
-      </div>
-      <div class="col text-center">
-        <br>
-
-        <table class="table col-5">
-          <thead>
-            <tr>
-              <th class="text-dark fw-bold" scope="col"><h2><%=@service.name + " Service"%></h2></th>
-            </tr>
-          </thead>
-
-          <tbody>
-            <% @service.posts.each do |i| %>
-              <tr>
-                <td scope="row" class="bg-white"><a href= "/posts/<%=i.id%>" class="text-dark"><%= i.title %></a></td>
-              </tr>
-            <% end %>
-
-          </tbody>
-        </table>
-
-        <br><br>
-
-      </div>
+  <div class="container  ">
+    <div class="row justify-content-center">
+    <div class="fw-bold, text-center">
+    <h2><%=@service.name + " Service"%></h2>
     </div>
-  </div>
+
+  <section class="post-list"> 
+    <% @service.posts.each do |post| %>
+    <section class="post-list mb-1"> 
+      <div>
+        <div class="post-list__time fw-bold text-center">
+        <%= post.created_at.to_time.strftime('%_m/%-d/%Y') %>
+        </div>
+        <div class="post-list__preview">
+          <h4><%= link_to post.title, post_path(post) %></h4>
+          </div>
+        </div>
+      </div>
+       </section>
+    <% end %>
+</div>
+</div>
