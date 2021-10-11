@@ -2,16 +2,16 @@ class SessionsController < ApplicationController
     
     def show 
         if logged_in?
-          redirect to user_path(@user)
+          redirect_to user_path(current_user)
         else 
-          redirect_to to "/"
+          render "home"
         end 
       end 
 
     def destroy 
         session.clear
-        redirect_to '/'
-    end 
+        render "home"
+      end 
 
     def create 
         user = User.find_by(username: params[:user][:username])
@@ -19,7 +19,7 @@ class SessionsController < ApplicationController
             session[:user_id] = user.id
             redirect_to user_path(user)
         else 
-            redirect_to "/"
+          render "home"
         end 
     end 
 end
