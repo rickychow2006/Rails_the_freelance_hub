@@ -3,9 +3,12 @@
     <div class="fw-bold, text-center m-3">
       <h2>Your Favorites:</h2>
     </div>
-      <section class="post-list text-center"> 
+    
         <% if current_user.userfavorites.empty?%>
-          <h4><%="Looks like you don't have any favorites yet..."%></h4>
+          <section class="post-list text-center">
+            <h4><%="Looks like you don't have any favorites yet..."%></h4>
+          </section>
+
         <% else %>
           <% current_user.userfavorites.each do |fav| %>
             <section class="post-list mb-1"> 
@@ -13,6 +16,7 @@
                 <div class="post-list__time fw-bold text-center">
                   <%= Post.find_by_id(fav.post_id).created_at.to_time.strftime('%_m/%-d/%Y') %>
                 </div>
+                
                 <div class="post-list__preview">
                   <h4><%= link_to Post.find_by_id(fav.post_id).title, post_path(Post.find_by_id(fav.post_id)) %></h4>
                 </div>
