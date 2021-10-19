@@ -29,7 +29,7 @@
         </div>
             <section class="post-list"> 
                 <% @posts_results.each do |post| %>
-                    <section class="post-list mb-1"> 
+                    <section class="post-list mb-3"> 
                         <div>
                             <div class="post-list__time fw-bold text-center">
                                 <%= post.created_at.to_time.strftime('%_m/%-d/%Y') %>
@@ -37,8 +37,8 @@
                             <div class="post-list__preview">
                                 <h4><%= link_to post.title, post_path(post) %></h4>
                                     <div class="post-show__topics">
-                                    <a class ="btn btn-primary btn-sm" href="/services/<%=post.service.id%>"> <h5><%= post.service.name.upcase %></h5>
-                                    </a>
+                                        <a class ="btn btn-primary btn-sm" href="/services/<%=post.service.id%>"> <h6><%= post.service.name.upcase %></h6>
+                                        </a>
                                     </div>
                             </div>
                         </div>
