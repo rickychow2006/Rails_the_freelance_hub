@@ -1,22 +1,21 @@
-  <div class="container  ">
-    <div class="row justify-content-center">
-    <div class="fw-bold, text-center">
-    <h2><%=@service.name + " Service"%></h2>
+<div class="container  ">
+  <div class="row justify-content-center">
+    <div class="fw-bold, text-center m-3">
+      <h1><%=@service.name%></h1>
     </div>
-
-  <section class="post-list"> 
-    <% @service.posts.each do |post| %>
-    <section class="post-list mb-1"> 
-      <div>
-        <div class="post-list__time fw-bold text-center">
-        <%= post.created_at.to_time.strftime('%_m/%-d/%Y') %>
-        </div>
-        <div class="post-list__preview">
-          <h4><%= link_to post.title, post_path(post) %></h4>
+    <section class="post-list"> 
+      <% @service.posts.each do |post| %>
+        <section class="post-list mb-1"> 
+          <div>
+            <div class="post-list__time fw-bold text-center">
+              <%= post.created_at.to_time.strftime('%_m/%-d/%Y') %>
+            </div>
+              <div class="post-list__preview">
+                <h4><%= link_to post.title, post_path(post) %></h4>
+            </div>
           </div>
-        </div>
-      </div>
-       </section>
-    <% end %>
-</div>
+        </section>
+      <% end %>
+    </section>
+  </div>
 </div>
