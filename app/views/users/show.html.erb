@@ -1,16 +1,48 @@
-<h1>Welcome <%= @user.username%> </h1>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" integrity="sha384-3AB7yXWz4OeoZcPbieVW64vVXEwADiYyAEhwilzWsLw+9FgqpyjjStpPnpBO8o8S" crossorigin="anonymous">
 
-<h1> Service: </h1>
-<% Service.all.each do |service|%>
-<h1> <a href = "/services/<%=service.id%>"> <%=service.name%> </h1>
-<%end %>
+<div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-9 text-center m-5">
+          <form action="/search" method="get">
+              <div class="form-group bg-primary rounded-pill mb-0 px-2 py-2 shadow">
+                  <div class="row">
+                      <div class="col">
+                          <div class="input-group input-group-merge shadow-none">
+                              <div class="input-group-prepend">
+                                <span class="input-group-text bg-transparent border-0"><i data-feather="search"></i></span>
+                              </div>
+                              <input class="form-control form-control-flush shadow-none" type="text" name="search" placeholder="Search again ...">
+                                <div class="col-auto">
+                                 <button class="btn btn-block btn-primary rounded-pill" type="submit">Search</button>
+                                </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </form>
+      </div>
+    </div>
+</div>
 
-
-<%= display_posts %>
-<%= render partial: "posts/posts", locals: {posts: @user.posts} %>
-
-<h1>Your Favorite Post: </h1>
-
-<% @user.userfavorites.all.each do |fav|%>
-<h1> <a href = "/posts/<%=fav.post_id%>"> <%=Post.find_by_id(fav.post_id).title%> </h1>
-<%end%>
+<div class="container">
+    <div class="row justify-content-center">
+      <section class="post-list"> 
+          <% Post.all.each do |post| %>
+              <section class="post-list mb-1"> 
+                  <div>
+                      <div class="post-list__time fw-bold text-center">
+                          <%= post.created_at.to_time.strftime('%_m/%-d/%Y') %>
+                      </div>
+                      <div class="post-list__preview">
+                          <h4><%= link_to post.title, post_path(post) %></h4>
+                              <div class="post-show__topics">
+                              <a class ="btn btn-primary btn-sm" href="/services/<%=post.service.id%>"> <h5><%= post.service.name.upcase %></h5>
+                              </a>
+                              </div>
+                      </div>
+                  </div>
+              </section>
+          <% end %>
+      </section>
+    </div>
+</div>
