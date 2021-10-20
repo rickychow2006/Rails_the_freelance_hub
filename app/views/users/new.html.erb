@@ -3,10 +3,10 @@
   <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-        <div class="card bg-white text-black" style="border-radius: 1rem;">
+        <div class="card bg-light shadow text-black border-light" style="border-radius: 1rem;">
           <div class="card-body p-5 ">
             <div class="mb-md-3 mt-md-3 pb-4">
-              <h5 class ="text-left">Sign up</h5>
+              <h3 class ="text-left">Sign up</h3>
 
               <%= form_for(@user) do |f| %>   
                 <div class="form-outline form-white mb-4">
@@ -20,8 +20,8 @@
                 </div>
 
                 <div class="form-outline form-white mb-4">
-                  <%= f.label "Password (6 characters minimum)" , class: "form-control-label" %><br />
-                  <%= f.password_field :password, autocomplete: "new-password", placeholder: "6+ characters", class: "form-control form-control-prepend" %>
+                  <%= f.label "Password" , class: "form-control-label" %><br />
+                  <%= f.password_field :password, autocomplete: "new-password", class: "form-control form-control-prepend" %>
                 </div>
 
                 <div class="form-outline form-white mb-4">

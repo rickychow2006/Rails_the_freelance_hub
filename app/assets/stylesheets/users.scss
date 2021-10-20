@@ -1,3 +1,66 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+$color-dark-grey: #5B5A6A;
+$color-blue: #A9C5FB;
+
+//FONT VARIABLES
+$font-primary: 'Source Sans Pro', sans-serif;
+$font-display: 'Pacifico', cursive;
+
+.post,
+.post-index,
+.post-show,
+.post-public {
+  max-width: 90vw;
+  margin: 6rem auto;
+  font-size: 2rem;
+}
+
+.post,
+.post-public {
+  width: 80ch;
+  label {
+    color: $color-dark-grey;
+  }
+}
+
+.post-list {
+    & > div {
+      display: grid;
+      grid-template-columns: 20% 80%;
+      margin-top: 0;
+    }
+  
+    &__time {
+      margin-top: 1rem;
+      margin: 10px 0px 0px
+    }
+  }
+  
+  .post-list__preview {
+    h4 {
+      margin-bottom: 1rem;
+    }
+  
+    h4 a {
+        color: darken($color-blue, 30%);
+        font-size: 2rem;
+        transition: color 300ms;
+        text-decoration: none;
+  
+        &:hover {
+          color: $color-blue ;
+        }
+      }
+  }
+
+  .post-show__topics {
+    display: flex;
+    flex-flow: row wrap;
+    & > li {
+      margin-right: .75rem;
+    }
+  }
+

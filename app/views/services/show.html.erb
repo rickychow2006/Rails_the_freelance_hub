@@ -10,10 +10,10 @@
             <div class="post-list__time fw-bold text-center">
               <%= post.created_at.to_time.strftime('%_m/%-d/%Y') %>
             </div>
-              <div class="post-list__preview">
+              <div class="text-dark post-list__preview text-dark">
                 <h4><%= link_to post.title, post_path(post) %></h4>
+              </div>
             </div>
-          </div>
         </section>
       <% end %>
     </section>

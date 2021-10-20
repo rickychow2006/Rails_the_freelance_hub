@@ -1,6 +1,5 @@
 <div class="container">
   <div class="row justify-content-center">
-
     <div class="col-10 pt-4 bg-brand-facebook rounded">
       <%= form_for(@post) do |f| %>
         <div class="form-group row medium">
@@ -21,7 +20,7 @@
           <%= f.label :service, class: "col-sm col-form-label text-black fw-bold" %>
           <div class="col-10"> 
             <%= f.collection_select(:service_id, Service.all, :id, :name,
-            { prompt: "select one of the following for the service category"}, { size: 10, class: "custom-select" }) %>
+            { prompt: "select one of the following for the service category"}, { size: 10, class: "custom-select col-10" }) %>
           </div>
         </div><br>
 
@@ -35,7 +34,7 @@
     <div class="col-12 justify-content-center">
     <div class="mb-3 text-center ">
         <br>
-      <%= link_to '[ Cancel and return to Homepage ]', "", class: "text-info text-center text-black" %>
+      <%= link_to '[ Cancel and return to Homepage ]', user_path(current_user), class: "text-info text-center text-black" %>
     </div>
     </div>
   </div>

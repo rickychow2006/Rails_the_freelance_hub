@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" integrity="sha384-3AB7yXWz4OeoZcPbieVW64vVXEwADiYyAEhwilzWsLw+9FgqpyjjStpPnpBO8o8S" crossorigin="anonymous">
 <%if current_user.favorite? (@post)%>
     <%= link_to "Remove from my favorites", userfavorite_path(@post), class:"btn btn-primary btn-rounded" , 
-    method: :delete, data: {confirm: "Are you sure?"} if current_user == @post.user%>
+    method: :delete, data: {confirm: "Are you sure?"}%>
 <%else%>
     <%= link_to "Add to my favorites", userfavorites_path(@post), class:"btn btn-light btn-rounded", method: :create  %>
 <%end%>

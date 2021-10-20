@@ -15,3 +15,6 @@ Service.create(name: "Programming & Tech")
 Service.create(name: "Data")
 Service.create(name: "Business")
 Service.create(name: "Lifestyle ")
+
+User.create(username: "Emily Xiao", email:"Emily123@gmail.com", password: "123456")
+User.create(username: "Marek Ski", email:"Marek1@gmail.com", password: "123456")

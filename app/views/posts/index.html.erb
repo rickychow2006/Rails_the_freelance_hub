@@ -1,0 +1,29 @@
+<div class="container  ">
+  <div class="row justify-content-center">
+    <div class="fw-bold, text-center m-3">
+      <h2>Your Posts:</h2>
+    </div>
+    
+        <% if current_user.posts.empty?%>
+          <section class="post-list text-center">
+            <h4><%="Looks like you don't have any posts yet..."%></h4>
+          </section>
+
+        <% else %>
+          <% current_user.posts.each do |post| %>
+            <section class="post-list mb-1"> 
+              <div>
+                <div class="post-list__time fw-bold text-center">
+                  <%= Post.find_by_id(post).created_at.to_time.strftime('%_m/%-d/%Y') %>
+                </div>
+                
+                <div class="post-list__preview">
+                  <h4><%= link_to Post.find_by_id(post).title, post_path(Post.find_by_id(post)) %></h4>
+                </div>
+              </div>
+            </section>
+          <% end %>
+        <% end %>
+    </div>
+</div>
+

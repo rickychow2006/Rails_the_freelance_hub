@@ -1,4 +1,10 @@
 class PostsController < ApplicationController
+    before_action :redirect_if_not_logged_in
+
+    def index 
+        render 'index'
+    end 
+    
     def new 
         @post = Post.new
     end 
@@ -20,21 +26,23 @@ class PostsController < ApplicationController
 
     def edit
         set_post
+        redirect_to_post_path if @post.user != current_user
     end 
 
     def update 
         set_post 
+        redirect_to_post_path if @post.user != current_user
         if @post.update(post_params)
-            flash[:notice] = "Updated successfully!"
+            flash[:success] = "Updated successfully!"
             redirect_to post_path(@post)
         else 
-            flash[:notice] = "Unsuccessful update. Try again!"
-            redirect_to_post_path(@post)
+            flash[:error] = "Unsuccessful update. Try again!"
+            render :edit
         end 
     end 
 
     def destroy
-        set_post 
+        set_post
         if current_user == @post.user
             @post.destroy
             redirect_to user_path(current_user)
@@ -45,7 +53,7 @@ class PostsController < ApplicationController
     end 
     
     def set_post
-        @post = Post.find_by(id: params[:id])
+        @post = Post.find_by_id(params[:id])
     end 
 
     def post_params 

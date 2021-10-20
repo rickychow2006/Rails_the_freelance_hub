@@ -10,10 +10,10 @@
           <a class="nav-link active text-white" aria-current="page" href= "/users/<%=current_user.id%>" >Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active text-white" href="#">Your Posts</a>
+          <a class="nav-link active text-white" href="/users/<%=current_user.id%>/posts">Your Posts</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active text-white" href="#">Favorites</a>
+          <a class="nav-link active text-white" href="/users/<%=current_user.id%>/userfavorites">Favorites</a>
         </li>
         <li class="nav-item">
           <a class="nav-link active text-white" href="/users/<%=current_user.id%>/posts/new">Create New Posts</a>

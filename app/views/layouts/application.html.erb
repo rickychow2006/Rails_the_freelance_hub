@@ -5,19 +5,14 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-            <%= render 'layouts/navbar' %>
+            <%= render 'layouts/navbar' if current_user %>
+            <%= render 'layouts/submenu' %>
             <%= render 'layouts/messages' %>
-
   </head>
 
   <body>
-        <section class="vh-100 gradient-custom">
-
         <%= yield %>
-        </section>
-
   </body>
 </html>
