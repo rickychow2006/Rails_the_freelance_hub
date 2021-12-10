@@ -20,6 +20,7 @@ class SessionsController < ApplicationController
             redirect_to user_path(user)
         else 
           redirect_to root_path
+          flash[:error] = "Your credentials were invalid.  Please sign up or try again."
         end 
     end 
 
